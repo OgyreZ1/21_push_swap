@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations1.c                                      :+:      :+:    :+:   */
+/*   operations_s_p.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 18:03:41 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/11 18:27:02 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:45:06 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,28 @@ void	ss(t_list **a, t_list **b)
 
 void	pa(t_list **a, t_list **b)
 {
+	t_list	*temp;
+
 	if (list_size(*b) > 0)
 	{
 		push_front(a, (*b)->value);
-		*b = (*b)->next;
+		temp = (*b)->next;
+		free(*b);
+		*b = temp;
 	}
 	ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_list **a, t_list **b)
 {
+	t_list	*temp;
+
 	if (list_size(*a) > 0)
 	{
 		push_front(b, (*a)->value);
-		*a = (*a)->next;
+		temp = (*a)->next;
+		free(*a);
+		*a = temp;
 	}
 	ft_putstr_fd("pb\n", 1);
 }

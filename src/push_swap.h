@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:53:38 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/11 18:44:27 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/12 13:40:43 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ typedef struct s_list
 void	fill_a(t_list **a, int argc, char **argv);
 void	push_back(t_list **list, int value);
 void	push_front(t_list **list, int value);
-int		in_list(t_list *list, int value);
 int		list_size(t_list *list);
+void	free_list(t_list **list);
 
 void	sa(t_list **a, int print);
 void	sb(t_list **b, int print);

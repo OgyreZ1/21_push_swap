@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 18:28:47 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 13:39:36 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:14:25 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,14 @@
 
 void	ra(t_list **a, int print)
 {
+	t_list	*temp;
+
 	if (list_size(*a) > 1)
 	{
-		push_back(a, (*a)->value);
-		*a = (*a)->next;
+		push_back(a, (*a)->n);
+		temp = (*a)->next;
+		free(*a);
+		*a = temp;
 	}
 	if (print)
 		ft_putstr_fd("ra\n", 1);
@@ -25,10 +29,14 @@ void	ra(t_list **a, int print)
 
 void	rb(t_list **b, int print)
 {
+	t_list	*temp;
+
 	if (list_size(*b) > 1)
 	{
-		push_back(b, (*b)->value);
-		*b = (*b)->next;
+		push_back(b, (*b)->n);
+		temp = (*b)->next;
+		free(*b);
+		*b = temp;
 	}
 	if (print)
 		ft_putstr_fd("rb\n", 1);

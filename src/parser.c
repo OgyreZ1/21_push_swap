@@ -6,17 +6,17 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:53:33 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 13:46:03 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:34:20 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	in_list(t_list *list, int value)
+int	in_list(t_list *list, int n)
 {
 	while (list)
 	{
-		if (list->value == value)
+		if (list->n == n)
 			return (1);
 		list = list->next;
 	}
@@ -51,6 +51,7 @@ void	fill_a(t_list **a, int argc, char **argv)
 	int	i;
 
 	i = 0;
+	*a = NULL;
 	while (++i < argc)
 	{
 		if (is_integer(argv[i]) && !in_list(*a, ft_atoi(argv[i])))

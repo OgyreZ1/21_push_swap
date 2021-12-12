@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:55:58 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 13:24:46 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/12 19:17:01 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,23 @@ void	print_list(t_list *list)
 {
 	while (list)
 	{
-		printf("%d ", list->value);
+		printf("%d ", list->n);
 		list = list->next;
 	}
 	printf("\n");
+}
+
+void	sort(t_list **a, t_list **b)
+{
+	(void)b;
+	if (is_sorted(*a))
+		return ;
+	if (list_size(*a) == 2)
+		sa(a, 1);
+	else if (list_size(*a) == 3)
+		sort_3(a);
+	else if (list_size(*a) <= 5)
+		sort_5(a, b);
 }
 
 int	main(int argc, char **argv)
@@ -31,17 +44,8 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit(0);
 	fill_a(&a, argc, argv);
-	sa(&a, 1);
-	pb(&a, &b);
-	pb(&a, &b);
-	pb(&a, &b);
-	ra(&a, 1);
-	rb(&b, 1);
-	rra(&a, 1);
-	rrb(&b, 1);
-	sa(&a, 1);
-	pa(&a, &b);
-	pa(&a, &b);
-	pa(&a, &b);
+	sort(&a, &b);
 	print_list(a);
+	free_list(&a);
+	free_list(&b);
 }

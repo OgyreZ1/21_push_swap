@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 18:03:41 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 13:45:06 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:14:16 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	pa(t_list **a, t_list **b)
 
 	if (list_size(*b) > 0)
 	{
-		push_front(a, (*b)->value);
+		push_front(a, (*b)->n);
 		temp = (*b)->next;
 		free(*b);
 		*b = temp;
@@ -69,7 +69,7 @@ void	pb(t_list **a, t_list **b)
 
 	if (list_size(*a) > 0)
 	{
-		push_front(b, (*a)->value);
+		push_front(b, (*a)->n);
 		temp = (*a)->next;
 		free(*a);
 		*a = temp;

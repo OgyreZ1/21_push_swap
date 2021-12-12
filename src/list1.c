@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.c                                             :+:      :+:    :+:   */
+/*   list1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 17:11:20 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 13:47:21 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/12 17:14:38 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*create_node(int value)
+t_list	*create_node(int n)
 {
 	t_list	*node;
 
@@ -20,30 +20,30 @@ t_list	*create_node(int value)
 	if (node == NULL)
 		return (NULL);
 	node->next = NULL;
-	node->value = value;
+	node->n = n;
 	return (node);
 }
 
-void	push_back(t_list **list, int value)
+void	push_back(t_list **list, int n)
 {
 	t_list	*curr;
 
 	curr = *list;
 	if (*list == NULL)
-		*list = create_node(value);
+		*list = create_node(n);
 	else
 	{
 		while (curr->next)
 			curr = curr->next;
-		curr->next = create_node(value);
+		curr->next = create_node(n);
 	}
 }
 
-void	push_front(t_list **list, int value)
+void	push_front(t_list **list, int n)
 {
 	t_list	*elem;
 
-	elem = create_node(value);
+	elem = create_node(n);
 	if (*list == NULL)
 		*list = elem;
 	else

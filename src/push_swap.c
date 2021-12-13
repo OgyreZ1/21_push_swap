@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:55:58 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 19:17:01 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/13 15:58:04 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit(0);
 	fill_a(&a, argc, argv);
-	sort(&a, &b);
 	print_list(a);
+	sort_100(&a, &b, 20);
 	free_list(&a);
 	free_list(&b);
 }

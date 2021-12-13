@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:53:38 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 19:15:33 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/13 15:55:10 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,12 @@ typedef struct s_list
 	struct s_list	*next;
 }				t_list;
 
+typedef struct s_border
+{
+	int	l;
+	int	r;
+}				t_border;
+
 void	fill_a(t_list **a, int argc, char **argv);
 void	push_back(t_list **list, int n);
 void	push_front(t_list **list, int n);
@@ -32,10 +38,12 @@ int		is_sorted(t_list *list);
 t_list	*last(t_list *list);
 int		list_min(t_list *list);
 int		list_max(t_list *list);
+int		list_next_min(t_list *list, int min);
 
 void	sort_3(t_list **a);
 void	roll_push_roll(t_list **a, t_list **b);
 void	sort_5(t_list **a, t_list **b);
+void	sort_100(t_list **a, t_list **b, int chunk);
 
 void	sa(t_list **a, int print);
 void	sb(t_list **b, int print);

@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 14:47:11 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 17:14:30 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/13 14:14:00 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,18 @@ int	list_max(t_list *list)
 		list = list->next;
 	}
 	return (max);
+}
+
+int	list_next_min(t_list *list, int min)
+{
+	int	next_min;
+
+	next_min = list_max(list);
+	while (list)
+	{
+		if (list->n > min && list->n < next_min)
+			next_min = list->n;
+		list = list->next;
+	}
+	return (next_min);
 }

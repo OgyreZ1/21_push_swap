@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:55:58 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/13 15:58:04 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/16 21:14:34 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ void	print_list(t_list *list)
 	printf("\n");
 }
 
+void	free_list(t_list **list)
+{
+	t_list	*curr;
+	t_list	*temp;
+
+	curr = *list;
+	while (curr)
+	{
+		temp = curr->next;
+		free(curr);
+		curr = temp;
+	}
+}
+
 void	sort(t_list **a, t_list **b)
 {
 	(void)b;
@@ -33,6 +47,8 @@ void	sort(t_list **a, t_list **b)
 		sort_3(a);
 	else if (list_size(*a) <= 5)
 		sort_5(a, b);
+	else
+		sort_100(a, b);
 }
 
 int	main(int argc, char **argv)
@@ -44,8 +60,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		exit(0);
 	fill_a(&a, argc, argv);
-	print_list(a);
-	sort_100(&a, &b, 20);
+	sort(&a, &b);
 	free_list(&a);
 	free_list(&b);
 }

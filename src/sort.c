@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:14:25 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/13 14:02:22 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/16 21:08:45 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,55 @@ void	sort_5(t_list **a, t_list **b)
 		else
 			roll_push_roll(a, b);
 	}
+}
+
+void	last_rotates(t_list **a)
+{
+	int		min_pos;
+	t_list	*temp;
+
+	min_pos = 0;
+	temp = *a;
+	while (temp)
+	{
+		if (temp->n == list_min(*a))
+			break ;
+		temp = temp->next;
+		min_pos++;
+	}
+	if (min_pos > list_size(*a) / 2)
+		min_pos = min_pos - list_size(*a);
+	if (min_pos > 0)
+		while (min_pos--)
+			ra(a, 1);
+	else
+		while (min_pos++)
+			rra(a, 1);
+}
+
+void	sort_100(t_list **a, t_list **b)
+{
+	int	m;
+
+	m = list_median(*a);
+	while (list_size(*a) > 2)
+	{
+		if ((*a)->n == list_min(*a) || (*a)->n == list_max(*a))
+			ra(a, 1);
+		if ((*a)->n < m)
+			pb(a, b);
+		else
+		{
+			pb(a, b);
+			rb(b, 1);
+		}
+	}
+	if (!is_sorted(*a))
+		ra(a, 1);
+	while (list_size(*b) > 0)
+	{
+		score_elems(*a, *b);
+		rotate_push(a, b);
+	}
+	last_rotates(a);
 }

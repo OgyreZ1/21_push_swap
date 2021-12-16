@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 17:11:20 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 17:14:38 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/16 20:30:50 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_list	*create_node(int n)
 		return (NULL);
 	node->next = NULL;
 	node->n = n;
+	node->score = 0;
 	return (node);
 }
 
@@ -53,18 +54,16 @@ void	push_front(t_list **list, int n)
 	}
 }
 
-void	free_list(t_list **list)
+int	list_median(t_list *list)
 {
-	t_list	*curr;
-	t_list	*temp;
+	int	m;
+	int	i;
 
-	curr = *list;
-	while (curr)
-	{
-		temp = curr->next;
-		free(curr);
-		curr = temp;
-	}
+	m = list_min(list);
+	i = 0;
+	while (i++ < list_size(list) / 2)
+		m = list_next_min(list, m);
+	return (m);
 }
 
 int	list_size(t_list *list)

@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:14:25 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/16 21:08:45 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:23:34 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,51 +39,49 @@ void	sort_3(t_list **a)
 		ra(a, 1);
 }
 
-void	roll_push_roll(t_list **a, t_list **b)
+void	pb_min(t_list **a, t_list **b)
 {
-	int		pos;
-	t_list	*curr;
+	int		i;
+	t_list	*temp;
 
-	pos = 2;
-	curr = *a;
-	while (curr->next && !(curr->n < (*b)->n && curr->next->n > (*b)->n) \
-	&& pos++ < 1000)
-		curr = curr->next;
-	if (pos > list_size(*a) / 2 + 1)
+	i = 0;
+	temp = *a;
+	while (temp)
 	{
-		while (!((*b)->n < (*a)->n && (*b)->n > last(*a)->n))
-			rra(a, 1);
-		pa(a, b);
-		while (!is_sorted(*a))
-			ra(a, 1);
+		if (temp->n == list_min(*a))
+			break ;
+		i++;
+		temp = temp->next;
 	}
+	if (i > list_size(*a) / 2)
+		while (i++ < 5)
+			rra(a, 1);
 	else
-	{
-		while (!((*b)->n < (*a)->n && (*b)->n > last(*a)->n))
+		while (i--)
 			ra(a, 1);
-		pa(a, b);
-		while (!is_sorted(*a))
-			rra(a, 1);
-	}
+	pb(a, b);
 }
 
 void	sort_5(t_list **a, t_list **b)
 {
-	while (list_size(*a) > 3)
-		pb(a, b);
-	sort_3(a);
-	while (list_size(*a) < 5 && list_size(*b) > 0)
+	int		i;
+
+	pb_min(a, b);
+	i = 0;
+	if ((*a)->next->n == list_max(*a))
+		ra(a, 1);
+	else if ((*a)->next->next->n == list_max(*a))
 	{
-		if ((*b)->n < list_min(*a))
-			pa(a, b);
-		else if ((*b)->n > list_max(*a))
-		{
-			pa(a, b);
-			ra(a, 1);
-		}
-		else
-			roll_push_roll(a, b);
+		ra(a, 1);
+		ra(a, 1);
 	}
+	else if (last(*a)->n == list_max(*a))
+		rra(a, 1);
+	pb(a, b);
+	sort_3(a);
+	pa(a, b);
+	ra(a, 1);
+	pa(a, b);
 }
 
 void	last_rotates(t_list **a)

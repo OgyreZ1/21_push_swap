@@ -6,21 +6,11 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:55:58 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/16 21:14:34 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:54:54 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_list(t_list *list)
-{
-	while (list)
-	{
-		printf("%d ", list->n);
-		list = list->next;
-	}
-	printf("\n");
-}
 
 void	free_list(t_list **list)
 {

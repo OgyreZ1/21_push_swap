@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 14:02:08 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/16 21:08:48 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/17 15:53:50 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,10 +88,10 @@ void	rotate(t_list **a, t_list **b, t_list *node)
 	r_a = a_score(*a, node->n);
 	r_b = b_score(*b, node->n);
 	if (r_a < 0 && r_b < 0)
-		while (r_a < 0 && r_b < 0 && r_a++ < 200 && r_b++ < 200)
+		while (r_a < 0 && r_b < 0 && r_a++ < 900 && r_b++ < 900)
 			rrr(a, b);
 	else if (r_a > 0 && r_b > 0)
-		while (r_a > 0 && r_b > 0 && r_a-- < 200 && r_b-- < 200)
+		while (r_a > 0 && r_b > 0 && r_a-- < 900 && r_b-- < 900)
 			rr(a, b);
 	if (r_a < 0)
 		while (r_a++)

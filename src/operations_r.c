@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 18:28:47 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 17:14:25 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:52:16 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,10 @@ void	rb(t_list **b, int print)
 		ft_putstr_fd("rb\n", 1);
 }
 
-void	rr(t_list **a, t_list **b)
+void	rr(t_list **a, t_list **b, int print)
 {
 	ra(a, 0);
 	rb(b, 0);
-	ft_putstr_fd("rr\n", 1);
+	if (print)
+		ft_putstr_fd("rr\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:53:38 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/16 20:40:53 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:53:52 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,15 @@ void	rotate_push(t_list **a, t_list **b);
 
 void	sa(t_list **a, int print);
 void	sb(t_list **b, int print);
-void	ss(t_list **a, t_list **b);
-void	pb(t_list **a, t_list **b);
-void	pa(t_list **a, t_list **b);
+void	ss(t_list **a, t_list **b, int print);
+void	pb(t_list **a, t_list **b, int print);
+void	pa(t_list **a, t_list **b, int print);
 void	ra(t_list **a, int print);
 void	rb(t_list **b, int print);
-void	rr(t_list **a, t_list **b);
+void	rr(t_list **a, t_list **b, int print);
 void	rra(t_list **a, int print);
 void	rrb(t_list **b, int print);
-void	rrr(t_list **a, t_list **b);
+void	rrr(t_list **a, t_list **b, int print);
 
 void	print_list(t_list *list);
 

@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 19:14:25 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/17 17:23:34 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:54:30 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	pb_min(t_list **a, t_list **b)
 	else
 		while (i--)
 			ra(a, 1);
-	pb(a, b);
+	pb(a, b, 1);
 }
 
 void	sort_5(t_list **a, t_list **b)
@@ -77,11 +77,11 @@ void	sort_5(t_list **a, t_list **b)
 	}
 	else if (last(*a)->n == list_max(*a))
 		rra(a, 1);
-	pb(a, b);
+	pb(a, b, 1);
 	sort_3(a);
-	pa(a, b);
+	pa(a, b, 1);
 	ra(a, 1);
-	pa(a, b);
+	pa(a, b, 1);
 }
 
 void	last_rotates(t_list **a)
@@ -118,10 +118,10 @@ void	sort_100(t_list **a, t_list **b)
 		if ((*a)->n == list_min(*a) || (*a)->n == list_max(*a))
 			ra(a, 1);
 		if ((*a)->n < m)
-			pb(a, b);
+			pb(a, b, 1);
 		else
 		{
-			pb(a, b);
+			pb(a, b, 1);
 			rb(b, 1);
 		}
 	}

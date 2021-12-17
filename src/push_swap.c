@@ -6,25 +6,11 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:55:58 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/17 17:24:30 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:53:59 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	free_list(t_list **list)
-{
-	t_list	*curr;
-	t_list	*temp;
-
-	curr = *list;
-	while (curr)
-	{
-		temp = curr->next;
-		free(curr);
-		curr = temp;
-	}
-}
 
 void	sort(t_list **a, t_list **b)
 {

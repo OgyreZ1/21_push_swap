@@ -6,11 +6,25 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:53:33 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/12 17:34:20 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:47:51 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	free_list(t_list **list)
+{
+	t_list	*curr;
+	t_list	*temp;
+
+	curr = *list;
+	while (curr)
+	{
+		temp = curr->next;
+		free(curr);
+		curr = temp;
+	}
+}
 
 int	in_list(t_list *list, int n)
 {

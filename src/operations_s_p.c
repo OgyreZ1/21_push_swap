@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 18:03:41 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/17 15:51:00 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/17 17:53:32 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,15 @@ void	sb(t_list **b, int print)
 		ft_putstr_fd("sb\n", 1);
 }
 
-void	ss(t_list **a, t_list **b)
+void	ss(t_list **a, t_list **b, int print)
 {
 	sa(a, 0);
 	sb(b, 0);
-	ft_putstr_fd("ss\n", 1);
+	if (print)
+		ft_putstr_fd("ss\n", 1);
 }
 
-void	pa(t_list **a, t_list **b)
+void	pa(t_list **a, t_list **b, int print)
 {
 	t_list	*temp;
 
@@ -60,10 +61,11 @@ void	pa(t_list **a, t_list **b)
 		free(*b);
 		*b = temp;
 	}
-	ft_putstr_fd("pa\n", 1);
+	if (print)
+		ft_putstr_fd("pa\n", 1);
 }
 
-void	pb(t_list **a, t_list **b)
+void	pb(t_list **a, t_list **b, int print)
 {
 	t_list	*temp;
 
@@ -74,5 +76,6 @@ void	pb(t_list **a, t_list **b)
 		free(*a);
 		*a = temp;
 	}
-	ft_putstr_fd("pb\n", 1);
+	if (print)
+		ft_putstr_fd("pb\n", 1);
 }

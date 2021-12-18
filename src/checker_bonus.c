@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:31:04 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/18 15:48:24 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/18 15:57:34 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,11 @@ int	read_cmd(char **cmd)
 		i++;
 		rd = read(0, &(*cmd)[i], 1);
 		if (i > 4)
+		{
+			while (rd > 0 && (*cmd)[0] != '\n')
+				rd = read(0, &(*cmd)[0], 1);
 			return (0);
+		}
 	}
 	(*cmd)[i] = '\0';
 	return (1);

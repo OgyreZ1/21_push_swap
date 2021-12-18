@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/11 15:53:38 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/17 17:53:52 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/18 15:49:27 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../libft/libft.h"
 # include <stdlib.h>
-# include <stdio.h>
 
 typedef struct s_list
 {
@@ -56,7 +55,5 @@ void	rr(t_list **a, t_list **b, int print);
 void	rra(t_list **a, int print);
 void	rrb(t_list **b, int print);
 void	rrr(t_list **a, t_list **b, int print);
-
-void	print_list(t_list *list);
 
 #endif

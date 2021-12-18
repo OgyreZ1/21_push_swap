@@ -6,7 +6,7 @@
 /*   By: yironmak <yironmak@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/17 17:31:04 by yironmak          #+#    #+#             */
-/*   Updated: 2021/12/18 15:28:27 by yironmak         ###   ########.fr       */
+/*   Updated: 2021/12/18 15:48:24 by yironmak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,20 +41,20 @@ void	execute(t_list **a, t_list **b, char *cmd)
 	else if (ft_strlen(cmd) == 2 && ft_strncmp(cmd, "ra", 2) == 0)
 		ra(a, 0);
 	else if (ft_strlen(cmd) == 2 && ft_strncmp(cmd, "rb", 2) == 0)
-		rb(a, 0);
+		rb(b, 0);
 	else if (ft_strlen(cmd) == 2 && ft_strncmp(cmd, "rr", 2) == 0)
 		rr(a, b, 0);
 	else if (ft_strlen(cmd) == 3 && ft_strncmp(cmd, "rra", 3) == 0)
 		rra(a, 0);
 	else if (ft_strlen(cmd) == 3 && ft_strncmp(cmd, "rrb", 3) == 0)
-		rrb(a, 0);
+		rrb(b, 0);
 	else if (ft_strlen(cmd) == 3 && ft_strncmp(cmd, "rrr", 3) == 0)
 		rrr(a, b, 0);
 	else
 		free_exit(a, b, cmd, -1);
 }
 
-void	read_cmd(char **cmd)
+int	read_cmd(char **cmd)
 {
 	int		rd;
 	int		i;
@@ -66,8 +66,11 @@ void	read_cmd(char **cmd)
 	{
 		i++;
 		rd = read(0, &(*cmd)[i], 1);
+		if (i > 4)
+			return (0);
 	}
 	(*cmd)[i] = '\0';
+	return (1);
 }
 
 int	main(int argc, char **argv)
@@ -77,7 +80,7 @@ int	main(int argc, char **argv)
 	char	*cmd;
 
 	b = NULL;
-	cmd = malloc(1000000);
+	cmd = malloc(4);
 	if (argc == 1)
 		exit(0);
 	fill_a(&a, argc, argv);
@@ -85,7 +88,8 @@ int	main(int argc, char **argv)
 		free_exit(&a, &b, cmd, 0);
 	while (1)
 	{
-		read_cmd(&cmd);
+		if (read_cmd(&cmd) == 0)
+			free_exit(&a, &b, cmd, -1);
 		if (ft_strlen(cmd) == 0)
 			break ;
 		execute(&a, &b, cmd);
